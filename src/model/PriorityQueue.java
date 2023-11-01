@@ -1,3 +1,5 @@
+package model;
+
 // Structure for the elements in the priority queue
 class Item {
     public char letter;
