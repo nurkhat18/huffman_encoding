@@ -22,10 +22,10 @@ public class Node  implements Comparable<Node>{
 		return this.frequency;
 	}
 	
-	public Node getleftNode() {
+	public Node getLeftNode() {
 		return leftNode;
 	}
-	public Node getrightNode() {
+	public Node getRightNode() {
 		return rightNode;
 	}
 

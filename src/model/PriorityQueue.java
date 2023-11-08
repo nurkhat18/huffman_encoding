@@ -12,49 +12,53 @@ class Item {
 }
 
 class PriorityQueue {
-    private Item[] queue;
+    private Node[] queue;
     private int size;
 
     public PriorityQueue(int capacity) {
-        queue = new Item[capacity];
+        queue = new Node[capacity];
         size = 0;
     }
 
-    public void enqueue(char letter, int priority) {
+    public void enqueue(Node node) {
         if (size == queue.length) {
             System.out.println("Queue is full. Cannot enqueue.");
             return;
         }
-        Item newItem = new Item(letter, priority);
-        queue[size] = newItem;
+        
+        queue[size] = node;
         size++;
         heapifyUp();
     }
     
-    public char peek() {
+    public Node peek() {
         if (size == 0) {
             System.out.println("Queue is empty. Cannot peek.");
-            return '\0'; // Null character as a placeholder
+            return null; // Null character as a placeholder
         }
 
-        return queue[0].letter;
+        return queue[0];
     }
     
-    public void dequeue() {
+    public Node dequeue() {
         if (size == 0) {
             System.out.println("Queue is empty. Cannot dequeue.");
-            return;
+            return null;
         }
+        
+        Node temp = queue[0];
         queue[0] = queue[size - 1];
         size--;
         heapifyDown();
+        
+        return temp;
     }
 
     private void heapifyUp() {
         int current = size - 1;
         int parent = (current - 1) / 2;
-        while (current > 0 && queue[current].priority > queue[parent].priority) {
-            Item temp = queue[current];
+        while (current > 0 && queue[current].getFrequency() > queue[parent].getFrequency()) {
+            Node temp = queue[current];
             queue[current] = queue[parent];
             queue[parent] = temp;
 
@@ -70,15 +74,15 @@ class PriorityQueue {
         int largest = current;
 
         while (leftChild < size) {
-            if (leftChild < size && queue[leftChild].priority > queue[largest].priority) {
+            if (leftChild < size && queue[leftChild].getFrequency() > queue[largest].getFrequency()) {
                 largest = leftChild;
             }
-            if (rightChild < size && queue[rightChild].priority > queue[largest].priority) {
+            if (rightChild < size && queue[rightChild].getFrequency() > queue[largest].getFrequency()) {
                 largest = rightChild;
             }
 
             if (largest != current) {
-                Item temp = queue[current];
+                Node temp = queue[current];
                 queue[current] = queue[largest];
                 queue[largest] = temp;
 
@@ -89,6 +93,10 @@ class PriorityQueue {
                 break;
             }
         }
+    }
+    
+    public int size() {
+    	return size;
     }
 
 //    public static void main(String[] args) {
