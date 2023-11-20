@@ -1,16 +1,18 @@
 package application;
 
+import model.Huffman;
+
 public class text {
 	private String user;
 	private String title;
 	private String time;
-	private String context;
+	private Huffman huffman;
 
-	public text(String user, String title, String time, String context) {
+	public text(String user, String title, String time, Huffman huffman) {
 		this.user = user;
 		this.title = title;
 		this.time = time;
-		this.context = context;
+		this.huffman = huffman;
 	
 	}
 	
@@ -29,9 +31,9 @@ public class text {
 		return time;
 	}
 	
-	public String getContext()
+	public Huffman getHuffman()
 	{
-		return context;
+		return huffman;
 	}
 	
 	

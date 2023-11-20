@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0" prefWidth="369.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0" prefWidth="369.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController2">
    <children>
       <Label alignment="CENTER" layoutX="117.0" layoutY="14.0" prefHeight="32.0" prefWidth="135.0" text="Messages">
          <font>
@@ -18,13 +18,13 @@
       </Label>
       <Line endX="254.0" fill="#030303" layoutX="115.0" layoutY="53.0" startX="-115.0" stroke="#b2aaaa" />
       <Button fx:id="sendButton" layoutX="303.0" layoutY="17.0" mnemonicParsing="false" onAction="#sendButtonOnAction" style="-fx-background-color: #ffffff;" text="Send" textFill="#1708ee" />
-      <Button fx:id="decodeButton" layoutX="102.0" layoutY="272.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="166.0" style="-fx-background-color: #d7d9de;" text="Decode and See" />
-      <TextArea fx:id="textArea" layoutX="14.0" layoutY="311.0" prefHeight="200.0" prefWidth="344.0" />
-      <TableView layoutX="14.0" layoutY="63.0" prefHeight="200.0" prefWidth="344.0">
+      <Button fx:id="decodeButton" layoutX="102.0" layoutY="272.0" mnemonicParsing="false" onAction="#decodeButtonOnAction" prefHeight="26.0" prefWidth="166.0" style="-fx-background-color: #d7d9de;" text="Decode and See" />
+      <TextArea fx:id="textArea" layoutX="14.0" layoutY="311.0" prefHeight="200.0" prefWidth="344.0" text="this is test." />
+      <TableView fx:id="tableView" layoutX="14.0" layoutY="63.0" prefHeight="200.0" prefWidth="344.0">
         <columns>
-          <TableColumn prefWidth="83.0" text="User" />
-          <TableColumn prefWidth="174.0" text="Title" />
-            <TableColumn minWidth="0.0" prefWidth="86.0" text="Time" />
+          <TableColumn fx:id="userColumn" prefWidth="83.0" text="User" />
+          <TableColumn fx:id="title" prefWidth="174.0" text="Title" />
+            <TableColumn fx:id="time" minWidth="0.0" prefWidth="86.0" text="Time" />
         </columns>
       </TableView>
       <Button fx:id="logoutButton" layoutX="14.0" layoutY="17.0" mnemonicParsing="false" onAction="#logoutButtonOnAction" style="-fx-background-color: #ffffff;" text="Log out" textFill="#1708ee" />
