@@ -1,3 +1,8 @@
+/*
+ * Gijeong Lee and Swarn
+ * This class has a HashMap containing account object and its ObservableList.
+ * 
+ */
 package application;
 
 import java.io.FileInputStream;
@@ -27,7 +32,10 @@ public class accountList {
 	}
 	
 	
-	
+	/*
+	 * It checks the username and password.
+	 * It is for log in.
+	 */
 	public boolean checkUser(String username, String password)
 	{
 		for(account accounts: accountsTable.keySet())
@@ -57,29 +65,4 @@ public class accountList {
 	}
 	
 
-//	public void saveNewAccounts() {
-//        try {
-//            FileOutputStream bytesToDisk = new FileOutputStream("accounts.ser");
-//            ObjectOutputStream outFile = new ObjectOutputStream(bytesToDisk);
-//            outFile.writeObject(accountsTable);
-//            outFile.close();
-//        } catch (IOException ioe) {
-//            System.out.println("Write failed... " + ioe);
-//        }
-//    }
-//	
-//	
-//	
-//	@SuppressWarnings("unchecked")
-//	public void readSavedAccounts() {
-//        try {
-//            FileInputStream disk = new FileInputStream("accounts.ser");
-//            ObjectInputStream inputStreamIn = new ObjectInputStream(disk);
-//            
-//            accountsTable = (HashMap<String, String>) inputStreamIn.readObject();
-//            inputStreamIn.close();
-//        } catch (ClassNotFoundException | IOException a) {
-//            System.out.println("Something went wrong! " + a);
-//        }
-//    }
 }

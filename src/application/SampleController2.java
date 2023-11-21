@@ -1,3 +1,8 @@
+/*
+ * Gijeong Lee
+ * This is for Sample2.fxml
+ */
+
 package application;
 
 import java.io.IOException;
@@ -46,10 +51,17 @@ public class SampleController2 implements Initializable{
     private accountList accountList;
     private String userName;
     private account account;
-    Huffman huff = new Huffman("HI");
+    
+    
     ObservableList<text> list;
     HashMap<account, ObservableList<text>> accountsTable;
   
+    /*
+     * This is for TableView.
+     * It assigns each column of TableView.
+     * Then it uses some functions in SampleController
+     * It gets observable list based on the account
+     */
     public void initialize(URL url, ResourceBundle resource) {
         userColumn.setCellValueFactory(new PropertyValueFactory<>("user"));
         title.setCellValueFactory(new PropertyValueFactory<>("title"));
@@ -61,7 +73,7 @@ public class SampleController2 implements Initializable{
         } catch (IOException e) {
             e.printStackTrace();
         }
-        
+        	
         SampleController scene5 = loader.getController();
         accountList = scene5.getAccountList();
         accountsTable = accountList.getHashMap();
@@ -78,15 +90,21 @@ public class SampleController2 implements Initializable{
         tableView.setItems(list);
     }
 
-	public void get() {
-		System.out.println(textArea.getText());
-	}
-	
+
+	/*
+	 * show the content on textArea.
+	 */
 	public void add(String content)
 	{
 		textArea.setText(content);
 	}
 	
+	/*
+	 * it adds newText which is an text Object
+	 * and its account which is newAccount
+	 * it gets the observable list by using newAccount which is an account object and key.
+	 * then, it updates the list.
+	 */
 	public void listAdd(text newText, account newAccount) {
 	    accountsTable = accountList.getHashMap();
 	    
@@ -104,29 +122,37 @@ public class SampleController2 implements Initializable{
 	        tableView.setItems(list);
 	    }
 	}
+	
+		/*
+		 * This is for send Button.
+		 * When it is pressed, it will switch to Sample3.fxml.
+		 */
+    @FXML
+    public void sendButtonOnAction(ActionEvent e) throws IOException {
+		  FXMLLoader loader = new FXMLLoader(getClass().getResource("Sample3.fxml"));
+		  root = loader.load();
+		  
+		  SampleController3 scene3 = loader.getController();
+		  
+		  stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+		  scene = new Scene(root);
+		  stage.setScene(scene);
+		  stage.show();
+    }
 
-  @FXML
-  public void sendButtonOnAction(ActionEvent e) throws IOException {
-      FXMLLoader loader = new FXMLLoader(getClass().getResource("Sample3.fxml"));
-      root = loader.load();
-      
-      SampleController3 scene3 = loader.getController();
-      
-      stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-      scene = new Scene(root);
-      stage.setScene(scene);
-      stage.show();
-  }
-
-
+    /*
+     * It is for log out Button
+     * This is for going back to log in scene which is Sample.fxml
+     * It gets the logged in account.
+     */
 	@FXML
 	public void logoutButtonOnAction(ActionEvent e) throws IOException {
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("Sample.fxml"));
+		  FXMLLoader loader = new FXMLLoader(getClass().getResource("Sample.fxml"));
 	      root = loader.load();
 	      
 	      SampleController scene1 = loader.getController();
 	      account = scene1.getAccount();
-	      System.out.println("account: " + account.getUserName());
+	      
 	      
 	      stage = (Stage)((Node)e.getSource()).getScene().getWindow();
 	      scene = new Scene(root);
@@ -134,9 +160,14 @@ public class SampleController2 implements Initializable{
 	      stage.show();
 	}
 	
+	/*
+	 * It is for decode Button.
+	 * When it is pressed, it will show the encoded text and decoded text of
+	 * selected one on TableView.
+	 */
 	@FXML
 	public void decodeButtonOnAction(ActionEvent e) throws IOException {
-		System.out.println("DECD");
+		
 		 int index = tableView.getSelectionModel().getSelectedIndex();
 		 tableView.getSelectionModel().select(index);
 		 text selectedText = list.get(index);
@@ -154,15 +185,15 @@ public class SampleController2 implements Initializable{
     	return accountList;
     }
 	
+	/*
+	 * This is for updating the TableView.
+	 * It checks whether it uses the correct list by using compare which is an account object
+	 */
 	public void updateTableView(ObservableList<text> newList, account compare) {
 		if(account.getUserName().equals(compare.getUserName()))
 		{
 			tableView.refresh();
 			list = accountsTable.get(compare);
-			for(text texts : list)
-			{
-				System.out.println("TEST UPDATE " + texts.getTitle());
-			}
 			tableView.setItems(list);
 		}
 		
@@ -173,19 +204,14 @@ public class SampleController2 implements Initializable{
 		return list;
 	}
 	
+	/*
+	 * it assign account to newaccount.
+	 * then it updates the tableView.
+	 */
 	public void getAccount2(account newaccount)
 	{
 		account = newaccount;
 		list = accountsTable.get(account);
-        
-        for(account accounts: accountsTable.keySet()) {
-        	System.out.println("USER NAME: " + accounts.getUserName());
-        	for(text texts: accountsTable.get(accounts))
-        	{
-        		
-        		System.out.println("get USER : " + texts.getUser());
-        	}
-        }
         
         tableView.setItems(list);	
 	}

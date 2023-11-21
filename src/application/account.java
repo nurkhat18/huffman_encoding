@@ -1,3 +1,8 @@
+/*
+ * Gijeong Lee and Swarn
+ * This is account class having userName, password, and ObservableList for TableView.
+ * ObservableList contains text objects.
+ */
 package application;
 
 import java.io.FileInputStream;

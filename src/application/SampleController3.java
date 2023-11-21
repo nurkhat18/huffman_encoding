@@ -1,3 +1,9 @@
+/*
+ * 
+ * Gijeong Lee
+ * This is for Sample3.fxml
+ */
+
 package application;
 
 import java.io.IOException;
@@ -42,22 +48,26 @@ public class SampleController3 {
 	text newText;
 	String from;
 	
+	/*
+	 * This is for send Button
+	 * When it is pressed, it will send the text Message to another user.
+	 * It will assign all the variables needed.
+	 * It will use the function in SampleController
+	 * It will also encode the text Message by using Huffman object and its functions.
+	 */
     @FXML
     public void newsendButtonOnAction(ActionEvent e) throws IOException {
     	
         toUser = toTextField.getText();
         message = sendTextField.getText();
-        System.out.println(message);
+       
         title = titleTextField.getText();
         huffman = new Huffman(message);
         encodedText = huffman.getEncodedText();
         from = toTextField.getText();
         
-        System.out.println(encodedText);
-        
-        
+
         time = LocalTime.now().toString();
-        System.out.println(from);
         newText = new text(from, title, time, huffman);
 
         
@@ -67,11 +77,16 @@ public class SampleController3 {
         
         SampleController scene4 = loader.getController();
         accountList = scene4.getAccountList();
-        System.out.println(accountList);
         
        
     }
     
+    /*
+     * This is for cancel Button
+     * When it is pressed, it will go back to Sample2.fxml
+     * It will update the accountTable which is a hashMap.
+     * Then it uses updateTableView function in SampleController2.
+     */
     @FXML
     public void cancelButtonOnAction(ActionEvent e) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Sample2.fxml"));
@@ -81,13 +96,11 @@ public class SampleController3 {
 
         HashMap<account, ObservableList<text>> accountTable = accountList.getHashMap();
 
-        System.out.println("list: " + accountList);
+        
 
         for (account accounts : accountTable.keySet()) {
-            System.out.println("For 3: " + accounts.getUserName());
+           
             if (accounts.getUserName().equals(toUser)) {
-                System.out.println("DD");
-                System.out.println("update: " + accounts.getUserName());
                 scene2.listAdd(newText, accounts);
                 account = accounts;
             }
@@ -95,12 +108,7 @@ public class SampleController3 {
 
         ObservableList<text> list = scene2.getList();
 
-        // Check if the list is null before attempting to iterate over it
-        if (list != null) {
-            for (text texts : list) {
-                System.out.println(texts.getTitle());
-            }
-        }
+      
 
         // Update the TableView in SampleController2
         scene2.updateTableView(list, account);

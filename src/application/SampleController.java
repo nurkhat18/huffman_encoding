@@ -1,3 +1,9 @@
+/*
+ * Gijeong Lee
+ * This is for Sample.fxml
+ * It also uses some functions in SampleController2 or SampleController3.
+ * 
+ */
 package application;
 
 import java.io.IOException;
@@ -23,7 +29,6 @@ import model.Huffman;
 
 public class SampleController {
 
-    private textList textList = new textList();
     private accountList accountList = new accountList();
 
     @FXML
@@ -66,6 +71,13 @@ public class SampleController {
     private static account account;
     ObservableList<text> list;
     
+    /*
+     * This is for login Button Action.
+     * When the login Button is pressed, it will check whether 
+     * the username and password are both correct and exist.
+     * If it is, it will change the scene to Sample2.fxml.
+     * If it is not, it will alert that one of them or both are incorrect.
+     */
     @FXML
     void loginButtonOnAction(ActionEvent e) throws IOException {
         if (!accountList.checkUser(usernameTextField.getText(), passwordPasswordField.getText())) {
@@ -78,12 +90,11 @@ public class SampleController {
         	{
         		if(accounts.getUserName().equals(userName))
         		{
-        			System.out.println("dd");
+        			
         			
         			account = accounts;
         			list = accountTable.get(account);
         			
-        			System.out.println(account.getUserName());
         		}
         	}
             
@@ -92,7 +103,7 @@ public class SampleController {
             
             SampleController2 scene2 = loader.getController();
        
-//            scene2.updateTableView(list);
+
             scene2.getAccount2(account);
             
             stage = (Stage)((Node)e.getSource()).getScene().getWindow();
@@ -102,7 +113,12 @@ public class SampleController {
             
         }
     }
-
+    
+    /*
+     * This is for sign in.
+     * If the usernameTexField or passwordField is empty, it will alert.
+     * Otherwise, it will create a new account with username and password.
+     */
     @FXML
     public void signinButtonOnAction(ActionEvent e) {
         if (usernameTextField.getText().isBlank() || passwordPasswordField.getText().isBlank()) {

@@ -1,3 +1,8 @@
+/*
+ * Gijeong Lee and Swarn
+ * It is for text.
+ * It has user, title, time, and huffman object
+ */
 package application;
 
 import model.Huffman;

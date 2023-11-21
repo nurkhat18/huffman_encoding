@@ -1,3 +1,9 @@
+/*
+ * Gijeong Lee
+ * This is for main part of javaFX.
+ * It starts the first fxml.
+ */
+
 package application;
 
 import java.io.IOException;
@@ -19,6 +25,9 @@ public class Main extends Application {
         changeScene("Sample.fxml");
     }
 
+    /*
+     * This is for changing the scene (fxml).
+     */
     public static SampleController changeScene(String fxml) throws IOException {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource(fxml));
         Parent root = loader.load();
