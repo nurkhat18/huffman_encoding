@@ -15,7 +15,6 @@ public class accountList {
 	public static HashMap<account, ObservableList<text>> accountsTable = new HashMap<>();
 	
 
-	
 	public void add(String userName, String password)
 	{
 		if(!accountsTable.containsKey(userName))

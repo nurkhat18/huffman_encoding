@@ -52,7 +52,10 @@ public class SampleController {
     private TextField titleTextField;
     @FXML
     private Button logoutButton;
-
+    @FXML
+    private TableView tableView;
+    
+    
     @FXML
     private TextArea textArea;
 
@@ -60,8 +63,8 @@ public class SampleController {
     private Scene scene;
     private Stage stage;
     private String userName;
-    private account account;
-    private 
+    private static account account;
+    ObservableList<text> list;
     
     @FXML
     void loginButtonOnAction(ActionEvent e) throws IOException {
@@ -70,12 +73,17 @@ public class SampleController {
         } else {
         	HashMap<account, ObservableList<text>> accountTable = accountList.getHashMap();
         	userName = usernameTextField.getText();
+        	
         	for(account accounts: accountTable.keySet())
         	{
         		if(accounts.getUserName().equals(userName))
         		{
         			System.out.println("dd");
+        			
         			account = accounts;
+        			list = accountTable.get(account);
+        			
+        			System.out.println(account.getUserName());
         		}
         	}
             
@@ -83,7 +91,9 @@ public class SampleController {
             root = loader.load();
             
             SampleController2 scene2 = loader.getController();
-            scene2.get();
+       
+//            scene2.updateTableView(list);
+            scene2.getAccount2(account);
             
             stage = (Stage)((Node)e.getSource()).getScene().getWindow();
             scene = new Scene(root);
@@ -109,23 +119,17 @@ public class SampleController {
     
     public accountList getAccountList()
     {
-    	System.out.println(accountList);
+    
     	return accountList;
     }
 
     
-    public account getAccount()
+    public static account getAccount()
     {
-//    	System.out.println(account.getUserName());
+    	
     	return account;
     }
 
-//    @FXML
-//    public void logoutButtonOnAction(ActionEvent e) throws IOException {
-//    	System.out.println(textArea.getText());
-////        Main.changeScene("Sample.fxml");
-//    }
-    
- 
+     
 
 }

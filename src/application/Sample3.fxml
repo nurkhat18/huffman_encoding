@@ -23,8 +23,10 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
-      <TextField fx:id="sendTextField" layoutX="14.0" layoutY="129.0" prefHeight="342.0" prefWidth="344.0" />
-      <TextField fx:id="titleTextField" layoutX="48.0" layoutY="98.0" prefHeight="26.0" prefWidth="300.0" />
-      <Label layoutX="14.0" layoutY="98.0" prefHeight="26.0" prefWidth="34.0" text="Title:" />
+      <TextField fx:id="sendTextField" layoutX="14.0" layoutY="181.0" prefHeight="290.0" prefWidth="344.0" />
+      <TextField fx:id="titleTextField" layoutX="48.0" layoutY="130.0" prefHeight="26.0" prefWidth="300.0" />
+      <Label layoutX="14.0" layoutY="98.0" prefHeight="26.0" prefWidth="34.0" text="From:" />
+      <Label layoutX="14.0" layoutY="130.0" prefHeight="26.0" prefWidth="34.0" text="Title:" />
+      <TextField fx:id="fromTextField" layoutX="48.0" layoutY="98.0" prefHeight="26.0" prefWidth="300.0" />
    </children>
 </AnchorPane>

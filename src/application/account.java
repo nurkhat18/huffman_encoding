@@ -16,7 +16,7 @@ import javafx.collections.ObservableList;
 public class account {
 	private String userName;
 	private String password;
-	private static ObservableList<text> list = FXCollections.observableArrayList();
+	private ObservableList<text> list = FXCollections.observableArrayList();
 	
 	account(String userName, String password)
 	{

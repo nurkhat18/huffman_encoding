@@ -19,7 +19,7 @@
       <Line endX="254.0" fill="#030303" layoutX="115.0" layoutY="53.0" startX="-115.0" stroke="#b2aaaa" />
       <Button fx:id="sendButton" layoutX="303.0" layoutY="17.0" mnemonicParsing="false" onAction="#sendButtonOnAction" style="-fx-background-color: #ffffff;" text="Send" textFill="#1708ee" />
       <Button fx:id="decodeButton" layoutX="102.0" layoutY="272.0" mnemonicParsing="false" onAction="#decodeButtonOnAction" prefHeight="26.0" prefWidth="166.0" style="-fx-background-color: #d7d9de;" text="Decode and See" />
-      <TextArea fx:id="textArea" layoutX="14.0" layoutY="311.0" prefHeight="200.0" prefWidth="344.0" text="this is test." />
+      <TextArea fx:id="textArea" layoutX="14.0" layoutY="311.0" prefHeight="200.0" prefWidth="344.0" />
       <TableView fx:id="tableView" layoutX="14.0" layoutY="63.0" prefHeight="200.0" prefWidth="344.0">
         <columns>
           <TableColumn fx:id="userColumn" prefWidth="83.0" text="User" />
