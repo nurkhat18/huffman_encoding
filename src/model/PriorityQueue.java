@@ -1,7 +1,8 @@
 package model;
-
+// This class is to build a priority queue and use it for building Huffman tree
 // Structure for the elements in the priority queue
 class Item {
+    // creat a class that has priority and letter
     public char letter;
     public int priority;
 
@@ -10,16 +11,16 @@ class Item {
         this.priority = priority;
     }
 }
-
+//This class is building the PriorityQueue.
 class PriorityQueue {
     private Node[] queue;
     private int size;
-
+    // instructor for Priority Queue
     public PriorityQueue(int capacity) {
         queue = new Node[capacity];
         size = 0;
     }
-
+    // Adding a new item into Priority Queue
     public void enqueue(Node node) {
         if (size == queue.length) {
             System.out.println("Queue is full. Cannot enqueue.");
@@ -30,7 +31,7 @@ class PriorityQueue {
         size++;
         heapifyUp();
     }
-    
+    //This function is getting the first element on Priority Queue
     public Node peek() {
         if (size == 0) {
             System.out.println("Queue is empty. Cannot peek.");
@@ -39,7 +40,7 @@ class PriorityQueue {
 
         return queue[0];
     }
-    
+     // delete the first item in Priority Queue
     public Node dequeue() {
         if (size == 0) {
             System.out.println("Queue is empty. Cannot dequeue.");
@@ -53,7 +54,8 @@ class PriorityQueue {
         
         return temp;
     }
-
+    // this function is using tree structure to build it and it
+    // need to have same order compare parents and children.
     private void heapifyUp() {
         int current = size - 1;
         int parent = (current - 1) / 2;
@@ -66,7 +68,8 @@ class PriorityQueue {
             parent = (current - 1) / 2;
         }
     }
-    
+    // this function is using tree structure to build it and it
+    // need to have same order compare parents and children.
     private void heapifyDown() {
         int current = 0;
         int leftChild = 2 * current + 1;
@@ -98,19 +101,4 @@ class PriorityQueue {
     public int size() {
     	return size;
     }
-
-//    public static void main(String[] args) {
-//        PriorityQueue priorityQueue = new PriorityQueue(100);
-//        priorityQueue.enqueue('A', 2);
-//        priorityQueue.enqueue('B', 4);
-//        priorityQueue.enqueue('C', 4);
-//        priorityQueue.enqueue('D', 3);
-//        char topElement = priorityQueue.peek();
-//        System.out.println(topElement);
-//        priorityQueue.dequeue();
-//        topElement = priorityQueue.peek();
-//        System.out.println(topElement);
-//        priorityQueue.dequeue();
-//        topElement = priorityQueue.peek();
-//        System.out.println(topElement); }
 }
