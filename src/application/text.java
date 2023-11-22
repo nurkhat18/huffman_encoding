@@ -13,6 +13,9 @@ public class text {
 	private String time;
 	private Huffman huffman;
 
+	/*
+	 * This is a constructon
+	 */
 	public text(String user, String title, String time, Huffman huffman) {
 		this.user = user;
 		this.title = title;

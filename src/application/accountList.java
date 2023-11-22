@@ -20,6 +20,9 @@ public class accountList {
 	public static HashMap<account, ObservableList<text>> accountsTable = new HashMap<>();
 	
 
+	/*
+	 * It adds new account object to accountsTable with userName and Password.
+	 */
 	public void add(String userName, String password)
 	{
 		if(!accountsTable.containsKey(userName))
@@ -54,11 +57,17 @@ public class accountList {
 		return false;
 	}
 	
+	/*
+	 * @return accountsTable (HashMap)
+	 */
 	public HashMap<account, ObservableList<text>> getHashMap()
 	{
 		return accountsTable;
 	}
 	
+	/*
+	 * return accountsTable.keySet() (Set<account>)
+	 */
 	public Set<account> getAccount()
 	{
 		return accountsTable.keySet();

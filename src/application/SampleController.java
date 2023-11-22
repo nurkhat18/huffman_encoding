@@ -132,14 +132,18 @@ public class SampleController {
     }
 
 
-    
+    /*
+     * It returns accountList
+     */
     public accountList getAccountList()
     {
     
     	return accountList;
     }
 
-    
+    /*
+     * It returns account
+     */
     public static account getAccount()
     {
     	

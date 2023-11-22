@@ -1,3 +1,7 @@
+/*
+ * Swarn
+ * It is for testing huffman
+ */
 package test;
 
 import model.Huffman;

@@ -199,6 +199,9 @@ public class SampleController2 implements Initializable{
 		
 	}
 
+	/*
+	 * It returns list
+	 */
 	public ObservableList<text> getList()
 	{
 		return list;
@@ -207,6 +210,7 @@ public class SampleController2 implements Initializable{
 	/*
 	 * it assign account to newaccount.
 	 * then it updates the tableView.
+	 * 
 	 */
 	public void getAccount2(account newaccount)
 	{
